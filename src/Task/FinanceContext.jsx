@@ -1,13 +1,13 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext } from 'react'
 
-export const FinanceContext = createContext();
+export const FinanceContext = createContext()
 
 export const useFinance = () => {
-  return useContext(FinanceContext);
-};
+  return useContext(FinanceContext)
+}
 
 export const FinanceProvider = ({ children }) => {
-  const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState([])
 
   const addRecord = (type, amount, category, date) => {
     const newRecord = {
@@ -16,25 +16,25 @@ export const FinanceProvider = ({ children }) => {
       amount,
       category,
       date,
-    };
-    setRecords((prevRecords) => [...prevRecords, newRecord]);
-  };
+    }
+    setRecords((prevRecords) => [...prevRecords, newRecord])
+  }
 
   const deleteRecord = (id) => {
     setRecords((prevRecords) =>
       prevRecords.filter((record) => record.id !== id)
-    );
-  };
+    )
+  }
 
   const totalIncome = records
-    .filter((record) => record.type === "Income")
-    .reduce((acc, record) => acc + record.amount, 0);
+    .filter((record) => record.type === 'Income')
+    .reduce((acc, record) => acc + record.amount, 0)
 
   const totalExpense = records
-    .filter((record) => record.type === "Expense")
-    .reduce((acc, record) => acc + record.amount, 0);
+    .filter((record) => record.type === 'Expense')
+    .reduce((acc, record) => acc + record.amount, 0)
 
-  const balance = totalIncome - totalExpense;
+  const balance = totalIncome - totalExpense
 
   return (
     <FinanceContext.Provider
@@ -49,5 +49,5 @@ export const FinanceProvider = ({ children }) => {
     >
       {children}
     </FinanceContext.Provider>
-  );
-};
+  )
+}

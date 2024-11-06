@@ -1,8 +1,8 @@
-import { useFinance } from "./FinanceContext";
+import { useFinance } from './FinanceContext'
 
 const Income = () => {
-  const { records, deleteRecord } = useFinance();
-  const incomeRecords = records.filter((record) => record.type === "Income");
+  const { records, deleteRecord } = useFinance()
+  const incomeRecords = records.filter((record) => record.type === 'Income')
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg">
@@ -26,7 +26,7 @@ const Income = () => {
         <p className="text-gray-500 mt-4">No income recorded.</p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Income;
+export default Income

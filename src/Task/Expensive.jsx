@@ -1,9 +1,8 @@
-import React from "react";
-import { useFinance } from "./FinanceContext";
+import { useFinance } from './FinanceContext'
 
 const Expensive = () => {
-  const { records, deleteRecord } = useFinance();
-  const expenses = records.filter((record) => record.type === "Expense");
+  const { records, deleteRecord } = useFinance()
+  const expenses = records.filter((record) => record.type === 'Expense')
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg">
@@ -27,7 +26,7 @@ const Expensive = () => {
         <p className="text-gray-500 mt-4">No expenses recorded.</p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Expensive;
+export default Expensive

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { useFinance } from "./FinanceContext";
+import { useState } from 'react'
+import { useFinance } from './FinanceContext'
 
 const SubmissionForm = () => {
-  const { addRecord } = useFinance();
-  const [amount, setAmount] = useState(0);
-  const [type, setType] = useState("Expense");
-  const [category, setCategory] = useState("");
-  const [date, setDate] = useState("");
+  const { addRecord } = useFinance()
+  const [amount, setAmount] = useState(0)
+  const [type, setType] = useState('Expense')
+  const [category, setCategory] = useState('')
+  const [date, setDate] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addRecord(type, parseFloat(amount), category, date);
-    setAmount(0);
-    setCategory("");
-    setDate("");
-  };
+    e.preventDefault()
+    addRecord(type, parseFloat(amount), category, date)
+    setAmount(0)
+    setCategory('')
+    setDate('')
+  }
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg">
@@ -24,17 +24,17 @@ const SubmissionForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex mt-4">
           <button
-            onClick={() => setType("Expense")}
+            onClick={() => setType('Expense')}
             className={`flex-1 px-4 py-2 text-center font-semibold ${
-              type === "Expense" ? "bg-gray-100" : ""
+              type === 'Expense' ? 'bg-gray-100' : ''
             }`}
           >
             Expense
           </button>
           <button
-            onClick={() => setType("Income")}
+            onClick={() => setType('Income')}
             className={`flex-1 px-4 py-2 text-center font-semibold ${
-              type === "Income" ? "bg-gray-100" : ""
+              type === 'Income' ? 'bg-gray-100' : ''
             }`}
           >
             Income
@@ -85,7 +85,7 @@ const SubmissionForm = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SubmissionForm;
+export default SubmissionForm
